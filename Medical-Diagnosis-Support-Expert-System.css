@@ -1,0 +1,64 @@
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#e9f3f1; --surface:#ffffff; --ink:#10303a; --muted:#5b7780; --line:#cfe0dd;
+  --brand:#0e7c70; --brand-ink:#ffffff; --chip:#f3f9f8; --chip-on:#0e7c70; --track:#dcebe8; --warn:#fff4e5; --warn-ink:#7a4a05;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0c1d22; --surface:#13292f; --ink:#e4f1ef; --muted:#93b0b5; --line:#254249;
+    --brand:#3cc2b0; --brand-ink:#06211e; --chip:#183339; --chip-on:#3cc2b0; --track:#21424a; --warn:#3a2c12; --warn-ink:#f2d49b;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0c1d22; --surface:#13292f; --ink:#e4f1ef; --muted:#93b0b5; --line:#254249;
+  --brand:#3cc2b0; --brand-ink:#06211e; --chip:#183339; --chip-on:#3cc2b0; --track:#21424a; --warn:#3a2c12; --warn-ink:#f2d49b;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Figtree,system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:32px 20px 48px}
+header{margin-bottom:28px}
+h1{font:700 clamp(1.9rem,4.5vw,3rem)/1.05 "Bricolage Grotesque",Figtree,system-ui,sans-serif;letter-spacing:-.02em;margin:0 0 10px}
+header p{margin:0;max-width:56ch;color:var(--muted)}
+.layout{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:start}
+@media (max-width:860px){.layout{grid-template-columns:1fr}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px}
+.panel h2{font:700 1.2rem "Bricolage Grotesque",Figtree,sans-serif;margin:0 0 4px}
+.sub{margin:0 0 16px;color:var(--muted);font-size:.93rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.chip span{display:inline-block;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:var(--chip);font-size:.92rem;font-weight:500;transition:background .15s,color .15s,border-color .15s}
+.chip input:checked + span{background:var(--chip-on);border-color:var(--chip-on);color:var(--brand-ink)}
+.chip input:focus-visible + span{outline:3px solid var(--brand);outline-offset:2px}
+.actions{display:flex;gap:10px;align-items:center;margin-top:20px;flex-wrap:wrap}
+button{font:600 1rem Figtree,system-ui,sans-serif;border-radius:12px;padding:12px 20px;cursor:pointer;border:1px solid transparent}
+button:focus-visible{outline:3px solid var(--brand);outline-offset:2px}
+.primary{background:var(--brand);color:var(--brand-ink)}
+.primary:hover{filter:brightness(1.08)}
+.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.count{margin-left:auto;color:var(--muted);font-size:.9rem}
+.results{position:sticky;top:calc(16px + env(safe-area-inset-top,0px))}
+@media (max-width:860px){.results{position:static}}
+.empty{color:var(--muted);margin:0}
+.warn{background:var(--warn);color:var(--warn-ink);border-radius:12px;padding:12px 14px;font-size:.93rem;margin:0 0 14px}
+.res{padding:16px 0;border-top:1px solid var(--line)}
+.res:first-of-type{border-top:0;padding-top:4px}
+.res-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.res h3{margin:0;font:700 1.1rem "Bricolage Grotesque",Figtree,sans-serif}
+.score{font:700 1.5rem "Bricolage Grotesque",Figtree,sans-serif;color:var(--brand)}
+.bar{height:8px;background:var(--track);border-radius:999px;margin:8px 0 12px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--brand);border-radius:999px;transition:width .5s ease}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.tag{font-size:.82rem;padding:3px 10px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.tag.hit{background:var(--chip);color:var(--ink);border-color:var(--brand)}
+.tag.hit::before{content:"✓ "}
+.advice{margin:0;font-size:.94rem}
+.disclaimer{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+.disclaimer strong{color:var(--ink)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}

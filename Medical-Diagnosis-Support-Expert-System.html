@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Medical Diagnosis Support Expert System</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="Medical-Diagnosis-Support-Expert-System.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Medical Diagnosis Support</h1>
+    <p>Select the symptoms the patient is experiencing. A rule-based expert system compares them against its knowledge base and ranks the most likely conditions.</p>
+  </header>
+
+  <div class="layout">
+    <section class="panel" aria-labelledby="sym-h">
+      <h2 id="sym-h">Symptoms</h2>
+      <p class="sub">Tap every symptom that applies.</p>
+      <div class="chips" id="chips"></div>
+      <div class="actions">
+        <button class="primary" id="run" type="button">Run diagnosis</button>
+        <button class="ghost" id="clear" type="button">Clear all</button>
+        <span class="count" id="count">0 selected</span>
+      </div>
+    </section>
+
+    <section class="panel results" aria-live="polite" aria-labelledby="res-h">
+      <h2 id="res-h">Analysis</h2>
+      <p class="sub" id="sel-line">Results appear here.</p>
+      <div id="out"><p class="empty">Choose symptoms, then run the diagnosis.</p></div>
+      <p class="disclaimer"><strong>Important:</strong> This system provides educational decision support only. It does not provide a confirmed medical diagnosis. Consult a qualified healthcare professional.</p>
+    </section>
+  </div>
+</div>
+
+<script src="Medical-Diagnosis-Support-Expert-System.js"></script>
+</body>
+</html>
